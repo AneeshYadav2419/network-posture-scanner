@@ -1,0 +1,7 @@
+permit tcp any any 22
+permit tcp any any 80
+deny tcp any any 23
+
+logging host 10.0.0.5
+
+snmp-server community public
