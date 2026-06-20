@@ -1,0 +1,101 @@
+{
+  "scans": [
+    {
+      "id": 1781966142396,
+      "createdAt": "2026-06-20T14:35:42.396Z",
+      "target": "127.0.0.1",
+      "devices": [
+        {
+          "ip": "127.0.0.1"
+        }
+      ],
+      "firewallRules": [],
+      "cisResults": []
+    },
+    {
+      "id": 1781967249553,
+      "createdAt": "2026-06-20T14:54:09.553Z",
+      "target": "127.0.0.1",
+      "devices": [
+        {
+          "ip": "127.0.0.1",
+          "hostname": "localhost",
+          "vendor": "Unknown",
+          "openPorts": [
+            {
+              "port": 135,
+              "service": "msrpc"
+            },
+            {
+              "port": 445,
+              "service": "microsoft-ds"
+            },
+            {
+              "port": 5000,
+              "service": "http"
+            },
+            {
+              "port": 8090,
+              "service": "tcpwrapped"
+            }
+          ]
+        }
+      ],
+      "firewallRules": [
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "22"
+        },
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "80"
+        },
+        {
+          "action": "deny",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "23"
+        }
+      ],
+      "cisResults": [
+        {
+          "checkName": "No Telnet Exposure",
+          "status": "PASS",
+          "evidence": "No Telnet exposure found"
+        },
+        {
+          "checkName": "Remote Logging Enabled",
+          "status": "PASS",
+          "evidence": "Remote logging configured"
+        },
+        {
+          "checkName": "Weak SNMP Community",
+          "status": "FAIL",
+          "evidence": "Weak SNMP community detected"
+        },
+        {
+          "checkName": "Sensitive Ports Restricted",
+          "status": "FAIL",
+          "evidence": "Sensitive port 22 exposed to any source"
+        },
+        {
+          "checkName": "SSH Only Management",
+          "status": "FAIL",
+          "evidence": "Insecure management port 80 is allowed"
+        },
+        {
+          "checkName": "Default Deny Policy",
+          "status": "PASS",
+          "evidence": "Deny rule detected"
+        }
+      ]
+    }
+  ]
+}
