@@ -1,122 +1,95 @@
-// function CisResultsTable({
-//     cisResults,
-// }) {
-//     return (
-//         <div
-//             style={{
-//                 marginTop: "30px",
-//             }}
-//         >
-//             <h2>CIS Results</h2>
+import { useState } from "react";
 
-//             <table border="1" cellPadding="10">
-//                 <thead>
-//                     <tr>
-//                         <th>Check</th>
-//                         <th>Status</th>
-//                         <th>Evidence</th>
-//                     </tr>
-//                 </thead>
+function CisResultsTable({ cisResults }) {
+  const [expandedIndex, setExpandedIndex] = useState(null);
 
-//                 <tbody>
-//                     {cisResults.map(
-//                         (result, index) => (
-//                             <tr key={index}>
-//                                 <td>
-//                                     {
-//                                         result.checkName
-//                                     }
-//                                 </td>
+  if (!cisResults || cisResults.length === 0) {
+    return (
+      <div className="empty-state">
+        <h3>No CIS Results Audited</h3>
+        <p>Run a posture scan to check device configuration files against standards.</p>
+      </div>
+    );
+  }
 
-//                                 <td>
-//                                     <span
-//                                         className={
-//                                             result.status === "PASS"
-//                                                 ? "pass"
-//                                                 : "fail"
-//                                         }
-//                                     >
-//                                         {result.status}
-//                                     </span>
-//                                 </td>
+  const toggleRow = (index) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
 
-//                                 <td>
-//                                     {
-//                                         result.evidence
-//                                     }
-//                                 </td>
-//                             </tr>
-//                         )
-//                     )}
-//                 </tbody>
-//             </table>
-//         </div>
-//     );
-// }
+  const getSeverityBadgeClass = (severity) => {
+    return `severity-badge severity-${(severity || "MEDIUM").toLowerCase()}`;
+  };
 
-// export default CisResultsTable;
-function CisResultsTable({
-  cisResults,
-}) {
   return (
     <>
-      <h2>
-        CIS Benchmark
-        Results
-      </h2>
+      <div className="table-header-container">
+        <h2 className="table-title">CIS Benchmark Configuration Compliance</h2>
+        <span className="table-badge count-badge">CIS v8 Controls</span>
+      </div>
 
-      <table className="table">
+      <table className="table cis-table">
         <thead>
           <tr>
-            <th>Check</th>
+            <th>CIS ID</th>
+            <th>Benchmark Control</th>
+            <th>Severity</th>
             <th>Status</th>
-            <th>Evidence</th>
+            <th>Audit Evidence</th>
+            <th>Action</th>
           </tr>
         </thead>
 
         <tbody>
-          {cisResults.map(
-            (
-              result,
-              index
-            ) => (
-              <tr key={index}>
-                <td>
-                  {
-                    result.checkName
-                  }
-                </td>
+          {cisResults.map((result, index) => {
+            const isExpanded = expandedIndex === index;
+            const isFail = result.status === "FAIL";
 
-                <td>
-                  <span
-                    style={{
-                      color:
-                        result.status ===
-                        "PASS"
-                          ? "#22c55e"
-                          : "#ef4444",
-                      fontWeight:
-                        "bold",
-                    }}
-                  >
-                    {
-                      result.status
-                    }
-                  </span>
-                </td>
-
-                <td>
-                  {
-                    result.evidence
-                  }
-                </td>
-              </tr>
-            )
-          )}
+            return (
+              <React.Fragment key={index}>
+                <tr
+                  className={`cis-row ${isFail ? "row-fail-hover" : ""}`}
+                  onClick={() => toggleRow(index)}
+                  style={{ cursor: "pointer" }}
+                >
+                  <td className="cis-id-cell">{result.id || "CIS-x.x"}</td>
+                  <td className="cis-name-cell">
+                    <strong>{result.checkName}</strong>
+                  </td>
+                  <td>
+                    <span className={getSeverityBadgeClass(result.severity)}>
+                      {result.severity || "MEDIUM"}
+                    </span>
+                  </td>
+                  <td>
+                    <span className={`status-pill pill-${result.status.toLowerCase()}`}>
+                      {result.status}
+                    </span>
+                  </td>
+                  <td className="cis-evidence-cell">{result.evidence}</td>
+                  <td>
+                    <button className="btn-table-action" onClick={(e) => { e.stopPropagation(); toggleRow(index); }}>
+                      {isExpanded ? "Close" : "Remediation"}
+                    </button>
+                  </td>
+                </tr>
+                {isExpanded && (
+                  <tr className="remediation-row">
+                    <td colSpan="6">
+                      <div className="remediation-container">
+                        <div className="remediation-title">🛠️ Recommended Remediation Action</div>
+                        <div className="remediation-text">{result.remediation}</div>
+                      </div>
+                    </td>
+                  </tr>
+                )}
+              </React.Fragment>
+            );
+          })}
         </tbody>
       </table>
     </>
   );
 }
 
+import React from "react";
 export default CisResultsTable;
