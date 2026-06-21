@@ -1045,6 +1045,1536 @@
           "remediation": "Disable legacy SNMP communities by running 'no snmp-server community <string>' and upgrade to SNMPv3 which provides user-based security, encryption, and authentication ('snmp-server group' and 'snmp-server user')."
         }
       ]
+    },
+    {
+      "id": 1782044527862,
+      "createdAt": "2026-06-21T12:22:07.862Z",
+      "target": "127.0.0.1",
+      "devices": [
+        {
+          "ip": "127.0.0.1",
+          "hostname": "127.0.0.1",
+          "vendor": "Unknown",
+          "openPorts": [
+            {
+              "port": 445,
+              "service": "SMB",
+              "banner": "SMB"
+            }
+          ]
+        }
+      ],
+      "firewallRules": [
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "22"
+        },
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "80"
+        },
+        {
+          "action": "deny",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "23"
+        }
+      ],
+      "cisResults": [
+        {
+          "id": "NO_TELNET_EXPOSURE",
+          "checkName": "No Telnet Exposure",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "No Telnet exposure found",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "REMOTE_LOGGING_ENABLED",
+          "checkName": "Remote Logging Enabled",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Remote logging configured",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "WEAK_SNMP_COMMUNITY",
+          "checkName": "Weak SNMP Community",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Weak SNMP community detected",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "SENSITIVE_PORTS_RESTRICTED",
+          "checkName": "Sensitive Ports Restricted",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Sensitive port 22 exposed to any source",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "SSH_ONLY_MANAGEMENT",
+          "checkName": "SSH Only Management",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Insecure management port 80 is allowed",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "DEFAULT_DENY_POLICY",
+          "checkName": "Default Deny Policy",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Deny rule detected",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        }
+      ],
+      "scannedAt": "2026-06-21T12:22:07.808Z"
+    },
+    {
+      "id": 1782044979559,
+      "createdAt": "2026-06-21T12:29:39.559Z",
+      "target": "127.0.0.1",
+      "devices": [
+        {
+          "ip": "127.0.0.1",
+          "hostname": "127.0.0.1",
+          "vendor": "Unknown",
+          "openPorts": [
+            {
+              "port": 445,
+              "service": "SMB",
+              "banner": "SMB"
+            }
+          ]
+        }
+      ],
+      "firewallRules": [
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "22"
+        },
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "80"
+        },
+        {
+          "action": "deny",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "23"
+        }
+      ],
+      "cisResults": [
+        {
+          "id": "NO_TELNET_EXPOSURE",
+          "checkName": "No Telnet Exposure",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "No Telnet exposure found",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "REMOTE_LOGGING_ENABLED",
+          "checkName": "Remote Logging Enabled",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Remote logging configured",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "WEAK_SNMP_COMMUNITY",
+          "checkName": "Weak SNMP Community",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Weak SNMP community detected",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "SENSITIVE_PORTS_RESTRICTED",
+          "checkName": "Sensitive Ports Restricted",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Sensitive port 22 exposed to any source",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "SSH_ONLY_MANAGEMENT",
+          "checkName": "SSH Only Management",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Insecure management port 80 is allowed",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "DEFAULT_DENY_POLICY",
+          "checkName": "Default Deny Policy",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Deny rule detected",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        }
+      ],
+      "scannedAt": "2026-06-21T12:29:39.484Z"
+    },
+    {
+      "id": 1782045010219,
+      "createdAt": "2026-06-21T12:30:10.219Z",
+      "target": "127.0.0.1",
+      "devices": [
+        {
+          "ip": "127.0.0.1",
+          "hostname": "127.0.0.1",
+          "vendor": "Unknown",
+          "openPorts": [
+            {
+              "port": 445,
+              "service": "SMB",
+              "banner": "SMB"
+            }
+          ]
+        }
+      ],
+      "firewallRules": [
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "22"
+        },
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "80"
+        },
+        {
+          "action": "deny",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "23"
+        }
+      ],
+      "cisResults": [
+        {
+          "id": "NO_TELNET_EXPOSURE",
+          "checkName": "No Telnet Exposure",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "No Telnet exposure found",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "REMOTE_LOGGING_ENABLED",
+          "checkName": "Remote Logging Enabled",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Remote logging configured",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "WEAK_SNMP_COMMUNITY",
+          "checkName": "Weak SNMP Community",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Weak SNMP community detected",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "SENSITIVE_PORTS_RESTRICTED",
+          "checkName": "Sensitive Ports Restricted",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Sensitive port 22 exposed to any source",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "SSH_ONLY_MANAGEMENT",
+          "checkName": "SSH Only Management",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Insecure management port 80 is allowed",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "DEFAULT_DENY_POLICY",
+          "checkName": "Default Deny Policy",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Deny rule detected",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        }
+      ],
+      "scannedAt": "2026-06-21T12:30:10.138Z"
+    },
+    {
+      "id": 1782045337925,
+      "createdAt": "2026-06-21T12:35:37.925Z",
+      "target": "192.168.1.0/24",
+      "devices": [
+        {
+          "ip": "192.168.1.3",
+          "hostname": "192.168.1.3",
+          "vendor": "Unknown",
+          "openPorts": [
+            {
+              "port": 445,
+              "service": "SMB",
+              "banner": "SMB"
+            }
+          ]
+        },
+        {
+          "ip": "192.168.1.1",
+          "hostname": "192.168.1.1",
+          "vendor": "Unknown (B4:3D:08)",
+          "openPorts": [
+            {
+              "port": 53,
+              "service": "DNS",
+              "banner": "DNS"
+            },
+            {
+              "port": 80,
+              "service": "HTTP",
+              "banner": "HTTP/1.0 302 Moved Temporarily\r"
+            },
+            {
+              "port": 443,
+              "service": "HTTPS",
+              "banner": "HTTPS"
+            }
+          ]
+        }
+      ],
+      "firewallRules": [
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "22"
+        },
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "80"
+        },
+        {
+          "action": "deny",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "23"
+        }
+      ],
+      "cisResults": [
+        {
+          "id": "NO_TELNET_EXPOSURE",
+          "checkName": "No Telnet Exposure",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "No Telnet exposure found",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "REMOTE_LOGGING_ENABLED",
+          "checkName": "Remote Logging Enabled",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Remote logging configured",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "WEAK_SNMP_COMMUNITY",
+          "checkName": "Weak SNMP Community",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Weak SNMP community detected",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "SENSITIVE_PORTS_RESTRICTED",
+          "checkName": "Sensitive Ports Restricted",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Sensitive port 22 exposed to any source",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "SSH_ONLY_MANAGEMENT",
+          "checkName": "SSH Only Management",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Insecure management port 80 is allowed",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "DEFAULT_DENY_POLICY",
+          "checkName": "Default Deny Policy",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Deny rule detected",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        }
+      ],
+      "scannedAt": "2026-06-21T12:35:37.799Z"
+    },
+    {
+      "id": 1782045412621,
+      "createdAt": "2026-06-21T12:36:52.621Z",
+      "target": "192.168.1.0/25",
+      "devices": [
+        {
+          "ip": "192.168.1.3",
+          "hostname": "192.168.1.3",
+          "vendor": "Unknown",
+          "openPorts": [
+            {
+              "port": 445,
+              "service": "SMB",
+              "banner": "SMB"
+            }
+          ]
+        },
+        {
+          "ip": "192.168.1.1",
+          "hostname": "192.168.1.1",
+          "vendor": "Unknown (B4:3D:08)",
+          "openPorts": [
+            {
+              "port": 53,
+              "service": "DNS",
+              "banner": "DNS"
+            },
+            {
+              "port": 80,
+              "service": "HTTP",
+              "banner": "HTTP/1.0 302 Moved Temporarily\r"
+            },
+            {
+              "port": 443,
+              "service": "HTTPS",
+              "banner": "HTTPS"
+            }
+          ]
+        }
+      ],
+      "firewallRules": [
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "22"
+        },
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "80"
+        },
+        {
+          "action": "deny",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "23"
+        }
+      ],
+      "cisResults": [
+        {
+          "id": "NO_TELNET_EXPOSURE",
+          "checkName": "No Telnet Exposure",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "No Telnet exposure found",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "REMOTE_LOGGING_ENABLED",
+          "checkName": "Remote Logging Enabled",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Remote logging configured",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "WEAK_SNMP_COMMUNITY",
+          "checkName": "Weak SNMP Community",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Weak SNMP community detected",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "SENSITIVE_PORTS_RESTRICTED",
+          "checkName": "Sensitive Ports Restricted",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Sensitive port 22 exposed to any source",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "SSH_ONLY_MANAGEMENT",
+          "checkName": "SSH Only Management",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Insecure management port 80 is allowed",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "DEFAULT_DENY_POLICY",
+          "checkName": "Default Deny Policy",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Deny rule detected",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        }
+      ],
+      "scannedAt": "2026-06-21T12:36:52.458Z"
+    },
+    {
+      "id": 1782045493455,
+      "createdAt": "2026-06-21T12:38:13.455Z",
+      "target": "192.168.1.5",
+      "devices": [],
+      "firewallRules": [
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "22"
+        },
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "80"
+        },
+        {
+          "action": "deny",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "23"
+        }
+      ],
+      "cisResults": [
+        {
+          "id": "NO_TELNET_EXPOSURE",
+          "checkName": "No Telnet Exposure",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "No Telnet exposure found",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "REMOTE_LOGGING_ENABLED",
+          "checkName": "Remote Logging Enabled",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Remote logging configured",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "WEAK_SNMP_COMMUNITY",
+          "checkName": "Weak SNMP Community",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Weak SNMP community detected",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "SENSITIVE_PORTS_RESTRICTED",
+          "checkName": "Sensitive Ports Restricted",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Sensitive port 22 exposed to any source",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "SSH_ONLY_MANAGEMENT",
+          "checkName": "SSH Only Management",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Insecure management port 80 is allowed",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "DEFAULT_DENY_POLICY",
+          "checkName": "Default Deny Policy",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Deny rule detected",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        }
+      ],
+      "scannedAt": "2026-06-21T12:38:13.353Z"
+    },
+    {
+      "id": 1782045563174,
+      "createdAt": "2026-06-21T12:39:23.174Z",
+      "target": "192.168.1.0/24",
+      "devices": [
+        {
+          "ip": "192.168.1.3",
+          "hostname": "192.168.1.3",
+          "vendor": "Unknown",
+          "openPorts": [
+            {
+              "port": 445,
+              "service": "SMB",
+              "banner": "SMB"
+            }
+          ]
+        },
+        {
+          "ip": "192.168.1.1",
+          "hostname": "192.168.1.1",
+          "vendor": "Unknown (B4:3D:08)",
+          "openPorts": [
+            {
+              "port": 53,
+              "service": "DNS",
+              "banner": "DNS"
+            },
+            {
+              "port": 80,
+              "service": "HTTP",
+              "banner": "HTTP/1.0 302 Moved Temporarily\r"
+            },
+            {
+              "port": 443,
+              "service": "HTTPS",
+              "banner": "HTTPS"
+            }
+          ]
+        }
+      ],
+      "firewallRules": [
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "22"
+        },
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "80"
+        },
+        {
+          "action": "deny",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "23"
+        }
+      ],
+      "cisResults": [
+        {
+          "id": "NO_TELNET_EXPOSURE",
+          "checkName": "No Telnet Exposure",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "No Telnet exposure found",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "REMOTE_LOGGING_ENABLED",
+          "checkName": "Remote Logging Enabled",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Remote logging configured",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "WEAK_SNMP_COMMUNITY",
+          "checkName": "Weak SNMP Community",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Weak SNMP community detected",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "SENSITIVE_PORTS_RESTRICTED",
+          "checkName": "Sensitive Ports Restricted",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Sensitive port 22 exposed to any source",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "SSH_ONLY_MANAGEMENT",
+          "checkName": "SSH Only Management",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Insecure management port 80 is allowed",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "DEFAULT_DENY_POLICY",
+          "checkName": "Default Deny Policy",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Deny rule detected",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        }
+      ],
+      "scannedAt": "2026-06-21T12:39:23.029Z"
+    },
+    {
+      "id": 1782046035213,
+      "createdAt": "2026-06-21T12:47:15.213Z",
+      "target": "127.0.0.1",
+      "devices": [
+        {
+          "ip": "127.0.0.1",
+          "hostname": "127.0.0.1",
+          "vendor": "Unknown",
+          "openPorts": [
+            {
+              "port": 445,
+              "service": "SMB",
+              "banner": "SMB"
+            }
+          ]
+        }
+      ],
+      "firewallRules": [
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "22"
+        },
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "80"
+        },
+        {
+          "action": "deny",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "23"
+        }
+      ],
+      "cisResults": [
+        {
+          "id": "NO_TELNET_EXPOSURE",
+          "checkName": "No Telnet Exposure",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "No Telnet exposure found",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "REMOTE_LOGGING_ENABLED",
+          "checkName": "Remote Logging Enabled",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Remote logging configured",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "WEAK_SNMP_COMMUNITY",
+          "checkName": "Weak SNMP Community",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Weak SNMP community detected",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "SENSITIVE_PORTS_RESTRICTED",
+          "checkName": "Sensitive Ports Restricted",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Sensitive port 22 exposed to any source",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "SSH_ONLY_MANAGEMENT",
+          "checkName": "SSH Only Management",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Insecure management port 80 is allowed",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "DEFAULT_DENY_POLICY",
+          "checkName": "Default Deny Policy",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Deny rule detected",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        }
+      ],
+      "scannedAt": "2026-06-21T12:47:15.173Z"
+    },
+    {
+      "id": 1782046046585,
+      "createdAt": "2026-06-21T12:47:26.585Z",
+      "target": "192.168.1.0/30",
+      "devices": [
+        {
+          "ip": "192.168.1.1",
+          "hostname": "192.168.1.1",
+          "vendor": "Unknown (B4:3D:08)",
+          "openPorts": [
+            {
+              "port": 53,
+              "service": "DNS",
+              "banner": "DNS"
+            },
+            {
+              "port": 80,
+              "service": "HTTP",
+              "banner": "HTTP/1.0 302 Moved Temporarily\r"
+            },
+            {
+              "port": 443,
+              "service": "HTTPS",
+              "banner": "HTTPS"
+            }
+          ]
+        }
+      ],
+      "firewallRules": [
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "22"
+        },
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "80"
+        },
+        {
+          "action": "deny",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "23"
+        }
+      ],
+      "cisResults": [
+        {
+          "id": "NO_TELNET_EXPOSURE",
+          "checkName": "No Telnet Exposure",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "No Telnet exposure found",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "REMOTE_LOGGING_ENABLED",
+          "checkName": "Remote Logging Enabled",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Remote logging configured",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "WEAK_SNMP_COMMUNITY",
+          "checkName": "Weak SNMP Community",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Weak SNMP community detected",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "SENSITIVE_PORTS_RESTRICTED",
+          "checkName": "Sensitive Ports Restricted",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Sensitive port 22 exposed to any source",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "SSH_ONLY_MANAGEMENT",
+          "checkName": "SSH Only Management",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Insecure management port 80 is allowed",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "DEFAULT_DENY_POLICY",
+          "checkName": "Default Deny Policy",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Deny rule detected",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        }
+      ],
+      "scannedAt": "2026-06-21T12:47:26.542Z"
+    },
+    {
+      "id": 1782046056029,
+      "createdAt": "2026-06-21T12:47:36.029Z",
+      "devices": [
+        {
+          "ip": "1.2.3.4",
+          "vendor": "TestCo",
+          "hostname": "test-host",
+          "openPorts": [
+            {
+              "service": "HTTP",
+              "port": 80
+            }
+          ]
+        }
+      ],
+      "target": "test-manual",
+      "firewallRules": [],
+      "cisResults": []
+    },
+    {
+      "id": 1782046241920,
+      "createdAt": "2026-06-21T12:50:41.920Z",
+      "target": "127.0.0.1",
+      "devices": [
+        {
+          "ip": "127.0.0.1",
+          "hostname": "127.0.0.1",
+          "vendor": "Unknown",
+          "openPorts": [
+            {
+              "port": 445,
+              "service": "SMB",
+              "banner": "SMB"
+            }
+          ]
+        }
+      ],
+      "firewallRules": [
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "22"
+        },
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "80"
+        },
+        {
+          "action": "deny",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "23"
+        }
+      ],
+      "cisResults": [
+        {
+          "id": "NO_TELNET_EXPOSURE",
+          "checkName": "No Telnet Exposure",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "No Telnet exposure found",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "REMOTE_LOGGING_ENABLED",
+          "checkName": "Remote Logging Enabled",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Remote logging configured",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "WEAK_SNMP_COMMUNITY",
+          "checkName": "Weak SNMP Community",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Weak SNMP community detected",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "SENSITIVE_PORTS_RESTRICTED",
+          "checkName": "Sensitive Ports Restricted",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Sensitive port 22 exposed to any source",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "SSH_ONLY_MANAGEMENT",
+          "checkName": "SSH Only Management",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Insecure management port 80 is allowed",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "DEFAULT_DENY_POLICY",
+          "checkName": "Default Deny Policy",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Deny rule detected",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        }
+      ],
+      "scannedAt": "2026-06-21T12:50:41.822Z"
+    },
+    {
+      "id": 1782046411733,
+      "createdAt": "2026-06-21T12:53:31.733Z",
+      "target": "192.168.1.0/30",
+      "devices": [
+        {
+          "ip": "192.168.1.1",
+          "hostname": "192.168.1.1",
+          "vendor": "Unknown (B4:3D:08)",
+          "openPorts": [
+            {
+              "port": 53,
+              "service": "DNS",
+              "banner": "DNS"
+            },
+            {
+              "port": 80,
+              "service": "HTTP",
+              "banner": "HTTP/1.0 302 Moved Temporarily\r"
+            },
+            {
+              "port": 443,
+              "service": "HTTPS",
+              "banner": "HTTPS"
+            }
+          ]
+        }
+      ],
+      "firewallRules": [
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "22"
+        },
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "80"
+        },
+        {
+          "action": "deny",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "23"
+        }
+      ],
+      "cisResults": [
+        {
+          "id": "NO_TELNET_EXPOSURE",
+          "checkName": "No Telnet Exposure",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "No Telnet exposure found",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "REMOTE_LOGGING_ENABLED",
+          "checkName": "Remote Logging Enabled",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Remote logging configured",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "WEAK_SNMP_COMMUNITY",
+          "checkName": "Weak SNMP Community",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Weak SNMP community detected",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "SENSITIVE_PORTS_RESTRICTED",
+          "checkName": "Sensitive Ports Restricted",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Sensitive port 22 exposed to any source",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "SSH_ONLY_MANAGEMENT",
+          "checkName": "SSH Only Management",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Insecure management port 80 is allowed",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "DEFAULT_DENY_POLICY",
+          "checkName": "Default Deny Policy",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Deny rule detected",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        }
+      ],
+      "scannedAt": "2026-06-21T12:53:31.634Z"
+    },
+    {
+      "id": 1782046462562,
+      "createdAt": "2026-06-21T12:54:22.562Z",
+      "target": "127.0.0.1",
+      "devices": [
+        {
+          "ip": "127.0.0.1",
+          "hostname": "127.0.0.1",
+          "vendor": "Unknown",
+          "openPorts": [
+            {
+              "port": 445,
+              "service": "SMB",
+              "banner": "SMB"
+            }
+          ]
+        }
+      ],
+      "firewallRules": [
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "22"
+        },
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "80"
+        },
+        {
+          "action": "deny",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "23"
+        }
+      ],
+      "cisResults": [
+        {
+          "id": "NO_TELNET_EXPOSURE",
+          "checkName": "No Telnet Exposure",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "No Telnet exposure found",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "REMOTE_LOGGING_ENABLED",
+          "checkName": "Remote Logging Enabled",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Remote logging configured",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "WEAK_SNMP_COMMUNITY",
+          "checkName": "Weak SNMP Community",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Weak SNMP community detected",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "SENSITIVE_PORTS_RESTRICTED",
+          "checkName": "Sensitive Ports Restricted",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Sensitive port 22 exposed to any source",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "SSH_ONLY_MANAGEMENT",
+          "checkName": "SSH Only Management",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Insecure management port 80 is allowed",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "DEFAULT_DENY_POLICY",
+          "checkName": "Default Deny Policy",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Deny rule detected",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        }
+      ],
+      "scannedAt": "2026-06-21T12:54:22.474Z"
+    },
+    {
+      "id": 1782046521874,
+      "createdAt": "2026-06-21T12:55:21.874Z",
+      "target": "192.168.1.0/30",
+      "devices": [
+        {
+          "ip": "192.168.1.1",
+          "hostname": "192.168.1.1",
+          "vendor": "Unknown (B4:3D:08)",
+          "openPorts": [
+            {
+              "port": 53,
+              "service": "DNS",
+              "banner": "DNS"
+            },
+            {
+              "port": 80,
+              "service": "HTTP",
+              "banner": "HTTP/1.0 302 Moved Temporarily\r"
+            },
+            {
+              "port": 443,
+              "service": "HTTPS",
+              "banner": "HTTPS"
+            }
+          ]
+        }
+      ],
+      "firewallRules": [
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "22"
+        },
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "80"
+        },
+        {
+          "action": "deny",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "23"
+        }
+      ],
+      "cisResults": [
+        {
+          "id": "NO_TELNET_EXPOSURE",
+          "checkName": "No Telnet Exposure",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "No Telnet exposure found",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "REMOTE_LOGGING_ENABLED",
+          "checkName": "Remote Logging Enabled",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Remote logging configured",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "WEAK_SNMP_COMMUNITY",
+          "checkName": "Weak SNMP Community",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Weak SNMP community detected",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "SENSITIVE_PORTS_RESTRICTED",
+          "checkName": "Sensitive Ports Restricted",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Sensitive port 22 exposed to any source",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "SSH_ONLY_MANAGEMENT",
+          "checkName": "SSH Only Management",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Insecure management port 80 is allowed",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "DEFAULT_DENY_POLICY",
+          "checkName": "Default Deny Policy",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Deny rule detected",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        }
+      ],
+      "scannedAt": "2026-06-21T12:55:21.758Z"
+    },
+    {
+      "id": 1782046591225,
+      "createdAt": "2026-06-21T12:56:31.225Z",
+      "target": "192.168.1.0/24",
+      "devices": [
+        {
+          "ip": "192.168.1.3",
+          "hostname": "192.168.1.3",
+          "vendor": "Unknown",
+          "openPorts": [
+            {
+              "port": 445,
+              "service": "SMB",
+              "banner": "SMB"
+            }
+          ]
+        },
+        {
+          "ip": "192.168.1.1",
+          "hostname": "192.168.1.1",
+          "vendor": "Unknown (B4:3D:08)",
+          "openPorts": [
+            {
+              "port": 53,
+              "service": "DNS",
+              "banner": "DNS"
+            },
+            {
+              "port": 80,
+              "service": "HTTP",
+              "banner": "HTTP/1.0 302 Moved Temporarily\r"
+            },
+            {
+              "port": 443,
+              "service": "HTTPS",
+              "banner": "HTTPS"
+            }
+          ]
+        }
+      ],
+      "firewallRules": [
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "22"
+        },
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "80"
+        },
+        {
+          "action": "deny",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "23"
+        }
+      ],
+      "cisResults": [
+        {
+          "id": "NO_TELNET_EXPOSURE",
+          "checkName": "No Telnet Exposure",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "No Telnet exposure found",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "REMOTE_LOGGING_ENABLED",
+          "checkName": "Remote Logging Enabled",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Remote logging configured",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "WEAK_SNMP_COMMUNITY",
+          "checkName": "Weak SNMP Community",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Weak SNMP community detected",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "SENSITIVE_PORTS_RESTRICTED",
+          "checkName": "Sensitive Ports Restricted",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Sensitive port 22 exposed to any source",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "SSH_ONLY_MANAGEMENT",
+          "checkName": "SSH Only Management",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Insecure management port 80 is allowed",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "DEFAULT_DENY_POLICY",
+          "checkName": "Default Deny Policy",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Deny rule detected",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        }
+      ],
+      "scannedAt": "2026-06-21T12:56:31.136Z"
+    },
+    {
+      "id": 1782046693940,
+      "createdAt": "2026-06-21T12:58:13.940Z",
+      "target": "192.168.1.0/30",
+      "devices": [
+        {
+          "ip": "192.168.1.1",
+          "hostname": "192.168.1.1",
+          "vendor": "Unknown (B4:3D:08)",
+          "openPorts": [
+            {
+              "port": 53,
+              "service": "DNS",
+              "banner": "DNS"
+            },
+            {
+              "port": 80,
+              "service": "HTTP",
+              "banner": "HTTP/1.0 302 Moved Temporarily\r"
+            },
+            {
+              "port": 443,
+              "service": "HTTPS",
+              "banner": "HTTPS"
+            }
+          ]
+        }
+      ],
+      "firewallRules": [
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "22"
+        },
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "80"
+        },
+        {
+          "action": "deny",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "23"
+        }
+      ],
+      "cisResults": [
+        {
+          "id": "NO_TELNET_EXPOSURE",
+          "checkName": "No Telnet Exposure",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "No Telnet exposure found",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "REMOTE_LOGGING_ENABLED",
+          "checkName": "Remote Logging Enabled",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Remote logging configured",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "WEAK_SNMP_COMMUNITY",
+          "checkName": "Weak SNMP Community",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Weak SNMP community detected",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "SENSITIVE_PORTS_RESTRICTED",
+          "checkName": "Sensitive Ports Restricted",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Sensitive port 22 exposed to any source",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "SSH_ONLY_MANAGEMENT",
+          "checkName": "SSH Only Management",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Insecure management port 80 is allowed",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        },
+        {
+          "id": "DEFAULT_DENY_POLICY",
+          "checkName": "Default Deny Policy",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Deny rule detected",
+          "remediation": "Review your network device configuration and apply the recommended fix."
+        }
+      ],
+      "scannedAt": "2026-06-21T12:58:13.838Z"
     }
   ]
 }
