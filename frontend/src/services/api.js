@@ -1,21 +1,20 @@
+
 import axios from "axios";
 
-const api = axios.create({
-  baseURL: "http://localhost:5000/api",
-});
-export default api;
+const API =
+  "http://localhost:5000/api";
 
-export const getDevices = () =>
-  api.get("/devices");
+export const getDevices =
+  () => axios.get(`${API}/devices`);
 
 export const getFirewallRules =
   () =>
-    api.get(
-      "/firewall-rules"
+    axios.get(
+      `${API}/firewall-rules`
     );
 
 export const getCisResults =
   () =>
-    api.get(
-      "/cis-results"
+    axios.get(
+      `${API}/cis-results`
     );

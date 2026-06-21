@@ -2,14 +2,12 @@ function FirewallRulesTable({
   firewallRules,
 }) {
   return (
-    <div
-      style={{
-        marginTop: "30px",
-      }}
-    >
-      <h2>Firewall Rules</h2>
+    <>
+      <h2>
+        Firewall Rules
+      </h2>
 
-      <table border="1" cellPadding="10">
+      <table className="table">
         <thead>
           <tr>
             <th>Action</th>
@@ -29,7 +27,9 @@ function FirewallRulesTable({
                 </td>
 
                 <td>
-                  {rule.protocol}
+                  {
+                    rule.protocol
+                  }
                 </td>
 
                 <td>
@@ -48,7 +48,7 @@ function FirewallRulesTable({
           )}
         </tbody>
       </table>
-    </div>
+    </>
   );
 }
 
