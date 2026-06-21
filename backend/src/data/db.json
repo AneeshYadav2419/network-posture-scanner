@@ -96,6 +96,955 @@
           "evidence": "Deny rule detected"
         }
       ]
+    },
+    {
+      "id": 1782025247544,
+      "createdAt": "2026-06-21T07:00:47.544Z",
+      "target": "127.0.0.1",
+      "devices": [
+        {
+          "ip": "127.0.0.1",
+          "hostname": "localhost",
+          "vendor": "Unknown",
+          "openPorts": [
+            {
+              "port": 135,
+              "service": "msrpc"
+            },
+            {
+              "port": 445,
+              "service": "microsoft-ds"
+            },
+            {
+              "port": 5000,
+              "service": "http"
+            },
+            {
+              "port": 8090,
+              "service": "tcpwrapped"
+            }
+          ]
+        }
+      ],
+      "firewallRules": [
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "22"
+        },
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "80"
+        },
+        {
+          "action": "deny",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "23"
+        }
+      ],
+      "cisResults": [
+        {
+          "checkName": "No Telnet Exposure",
+          "status": "PASS",
+          "evidence": "No Telnet exposure found"
+        },
+        {
+          "checkName": "Remote Logging Enabled",
+          "status": "PASS",
+          "evidence": "Remote logging configured"
+        },
+        {
+          "checkName": "Weak SNMP Community",
+          "status": "FAIL",
+          "evidence": "Weak SNMP community detected"
+        },
+        {
+          "checkName": "Sensitive Ports Restricted",
+          "status": "FAIL",
+          "evidence": "Sensitive port 22 exposed to any source"
+        },
+        {
+          "checkName": "SSH Only Management",
+          "status": "FAIL",
+          "evidence": "Insecure management port 80 is allowed"
+        },
+        {
+          "checkName": "Default Deny Policy",
+          "status": "PASS",
+          "evidence": "Deny rule detected"
+        }
+      ]
+    },
+    {
+      "id": 1782027223803,
+      "createdAt": "2026-06-21T07:33:43.803Z",
+      "target": "127.0.0.1",
+      "devices": [
+        {
+          "ip": "127.0.0.1",
+          "hostname": "localhost",
+          "vendor": "Loopback Interface",
+          "mac": "00:00:00:00:00:00",
+          "openPorts": [
+            {
+              "port": 135,
+              "service": "msrpc",
+              "banner": "unknown"
+            },
+            {
+              "port": 445,
+              "service": "microsoft-ds",
+              "banner": "unknown"
+            },
+            {
+              "port": 8090,
+              "service": "http-alternate",
+              "banner": "unknown"
+            },
+            {
+              "port": 5000,
+              "service": "http",
+              "banner": "HTTP Service (Title: Error)"
+            }
+          ]
+        }
+      ],
+      "firewallRules": [
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "22"
+        },
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "80"
+        },
+        {
+          "action": "deny",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "23"
+        }
+      ],
+      "cisResults": [
+        {
+          "id": "CIS-1.1",
+          "checkName": "No Telnet Exposure",
+          "status": "PASS",
+          "severity": "HIGH",
+          "evidence": "No permit rules found for Telnet port 23",
+          "remediation": "None required. Telnet access is disabled/denied by default."
+        },
+        {
+          "id": "CIS-3.1",
+          "checkName": "Remote Logging Enabled",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Remote logging host is configured in the network device settings",
+          "remediation": "Configure remote syslog server forwarding by running 'logging host <syslog_server_ip>' in global configuration mode to send events to a central collector."
+        },
+        {
+          "id": "CIS-1.3",
+          "checkName": "Weak SNMP Community",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "evidence": "Default/weak SNMP community string ('public' or 'private') detected in configurations",
+          "remediation": "Remove default SNMP communities (e.g. 'no snmp-server community public') and configure unique, complex community strings, or disable SNMP in favor of secure SNMPv3."
+        },
+        {
+          "id": "CIS-2.1",
+          "checkName": "Sensitive Ports Restricted",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "evidence": "Sensitive port 22 is exposed to 'any' source in a permit rule.",
+          "remediation": "Restrict rules allowing management/database ports to trusted IPs or subnets (e.g. 'permit tcp 192.168.1.0 0.0.0.255 any 22') instead of allowing 'any'."
+        },
+        {
+          "id": "CIS-1.2",
+          "checkName": "SSH Only Management",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "evidence": "Insecure management/transfer port 80 is explicitly permitted.",
+          "remediation": "Disable cleartext administration protocols. Ensure only secure SSH (port 22) is permitted for remote administration, and remove rules allowing ports 21 (FTP), 23 (Telnet), and 80 (HTTP)."
+        },
+        {
+          "id": "CIS-2.2",
+          "checkName": "Default Deny Policy",
+          "status": "PASS",
+          "severity": "HIGH",
+          "evidence": "Deny rule detected in firewall configurations",
+          "remediation": "None required. A default deny rule is in place."
+        },
+        {
+          "id": "CIS-3.2",
+          "checkName": "Secure HTTP Administration",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Firewall rules permit insecure HTTP (port 80) access",
+          "remediation": "Disable HTTP server for management ('no ip http server') and enable secure HTTPS server ('ip http secure-server') to encrypt administrative web sessions."
+        },
+        {
+          "id": "CIS-1.4",
+          "checkName": "Disable Insecure SNMP v1/v2c",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Legacy SNMPv1/v2c community configurations detected",
+          "remediation": "Disable legacy SNMP communities by running 'no snmp-server community <string>' and upgrade to SNMPv3 which provides user-based security, encryption, and authentication ('snmp-server group' and 'snmp-server user')."
+        }
+      ]
+    },
+    {
+      "id": 1782027235858,
+      "createdAt": "2026-06-21T07:33:55.858Z",
+      "target": "127.0.0.1",
+      "devices": [
+        {
+          "ip": "127.0.0.1",
+          "hostname": "localhost",
+          "vendor": "Loopback Interface",
+          "mac": "00:00:00:00:00:00",
+          "openPorts": [
+            {
+              "port": 135,
+              "service": "msrpc",
+              "banner": "unknown"
+            },
+            {
+              "port": 445,
+              "service": "microsoft-ds",
+              "banner": "unknown"
+            },
+            {
+              "port": 8090,
+              "service": "http-alternate",
+              "banner": "unknown"
+            },
+            {
+              "port": 5000,
+              "service": "http",
+              "banner": "HTTP Service (Title: Error)"
+            }
+          ]
+        }
+      ],
+      "firewallRules": [
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "22"
+        },
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "80"
+        },
+        {
+          "action": "deny",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "23"
+        }
+      ],
+      "cisResults": [
+        {
+          "id": "CIS-1.1",
+          "checkName": "No Telnet Exposure",
+          "status": "PASS",
+          "severity": "HIGH",
+          "evidence": "No permit rules found for Telnet port 23",
+          "remediation": "None required. Telnet access is disabled/denied by default."
+        },
+        {
+          "id": "CIS-3.1",
+          "checkName": "Remote Logging Enabled",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Remote logging host is configured in the network device settings",
+          "remediation": "Configure remote syslog server forwarding by running 'logging host <syslog_server_ip>' in global configuration mode to send events to a central collector."
+        },
+        {
+          "id": "CIS-1.3",
+          "checkName": "Weak SNMP Community",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "evidence": "Default/weak SNMP community string ('public' or 'private') detected in configurations",
+          "remediation": "Remove default SNMP communities (e.g. 'no snmp-server community public') and configure unique, complex community strings, or disable SNMP in favor of secure SNMPv3."
+        },
+        {
+          "id": "CIS-2.1",
+          "checkName": "Sensitive Ports Restricted",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "evidence": "Sensitive port 22 is exposed to 'any' source in a permit rule.",
+          "remediation": "Restrict rules allowing management/database ports to trusted IPs or subnets (e.g. 'permit tcp 192.168.1.0 0.0.0.255 any 22') instead of allowing 'any'."
+        },
+        {
+          "id": "CIS-1.2",
+          "checkName": "SSH Only Management",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "evidence": "Insecure management/transfer port 80 is explicitly permitted.",
+          "remediation": "Disable cleartext administration protocols. Ensure only secure SSH (port 22) is permitted for remote administration, and remove rules allowing ports 21 (FTP), 23 (Telnet), and 80 (HTTP)."
+        },
+        {
+          "id": "CIS-2.2",
+          "checkName": "Default Deny Policy",
+          "status": "PASS",
+          "severity": "HIGH",
+          "evidence": "Deny rule detected in firewall configurations",
+          "remediation": "None required. A default deny rule is in place."
+        },
+        {
+          "id": "CIS-3.2",
+          "checkName": "Secure HTTP Administration",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Firewall rules permit insecure HTTP (port 80) access",
+          "remediation": "Disable HTTP server for management ('no ip http server') and enable secure HTTPS server ('ip http secure-server') to encrypt administrative web sessions."
+        },
+        {
+          "id": "CIS-1.4",
+          "checkName": "Disable Insecure SNMP v1/v2c",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Legacy SNMPv1/v2c community configurations detected",
+          "remediation": "Disable legacy SNMP communities by running 'no snmp-server community <string>' and upgrade to SNMPv3 which provides user-based security, encryption, and authentication ('snmp-server group' and 'snmp-server user')."
+        }
+      ]
+    },
+    {
+      "id": 1782027277317,
+      "createdAt": "2026-06-21T07:34:37.317Z",
+      "target": "127.0.0.1",
+      "devices": [
+        {
+          "ip": "127.0.0.1",
+          "hostname": "localhost",
+          "vendor": "Loopback Interface",
+          "mac": "00:00:00:00:00:00",
+          "openPorts": [
+            {
+              "port": 135,
+              "service": "msrpc",
+              "banner": "unknown"
+            },
+            {
+              "port": 445,
+              "service": "microsoft-ds",
+              "banner": "unknown"
+            },
+            {
+              "port": 8090,
+              "service": "http-alternate",
+              "banner": "unknown"
+            },
+            {
+              "port": 5000,
+              "service": "http",
+              "banner": "HTTP Service (Title: Error)"
+            }
+          ]
+        }
+      ],
+      "firewallRules": [
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "22"
+        },
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "80"
+        },
+        {
+          "action": "deny",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "23"
+        }
+      ],
+      "cisResults": [
+        {
+          "id": "CIS-1.1",
+          "checkName": "No Telnet Exposure",
+          "status": "PASS",
+          "severity": "HIGH",
+          "evidence": "No permit rules found for Telnet port 23",
+          "remediation": "None required. Telnet access is disabled/denied by default."
+        },
+        {
+          "id": "CIS-3.1",
+          "checkName": "Remote Logging Enabled",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Remote logging host is configured in the network device settings",
+          "remediation": "Configure remote syslog server forwarding by running 'logging host <syslog_server_ip>' in global configuration mode to send events to a central collector."
+        },
+        {
+          "id": "CIS-1.3",
+          "checkName": "Weak SNMP Community",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "evidence": "Default/weak SNMP community string ('public' or 'private') detected in configurations",
+          "remediation": "Remove default SNMP communities (e.g. 'no snmp-server community public') and configure unique, complex community strings, or disable SNMP in favor of secure SNMPv3."
+        },
+        {
+          "id": "CIS-2.1",
+          "checkName": "Sensitive Ports Restricted",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "evidence": "Sensitive port 22 is exposed to 'any' source in a permit rule.",
+          "remediation": "Restrict rules allowing management/database ports to trusted IPs or subnets (e.g. 'permit tcp 192.168.1.0 0.0.0.255 any 22') instead of allowing 'any'."
+        },
+        {
+          "id": "CIS-1.2",
+          "checkName": "SSH Only Management",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "evidence": "Insecure management/transfer port 80 is explicitly permitted.",
+          "remediation": "Disable cleartext administration protocols. Ensure only secure SSH (port 22) is permitted for remote administration, and remove rules allowing ports 21 (FTP), 23 (Telnet), and 80 (HTTP)."
+        },
+        {
+          "id": "CIS-2.2",
+          "checkName": "Default Deny Policy",
+          "status": "PASS",
+          "severity": "HIGH",
+          "evidence": "Deny rule detected in firewall configurations",
+          "remediation": "None required. A default deny rule is in place."
+        },
+        {
+          "id": "CIS-3.2",
+          "checkName": "Secure HTTP Administration",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Firewall rules permit insecure HTTP (port 80) access",
+          "remediation": "Disable HTTP server for management ('no ip http server') and enable secure HTTPS server ('ip http secure-server') to encrypt administrative web sessions."
+        },
+        {
+          "id": "CIS-1.4",
+          "checkName": "Disable Insecure SNMP v1/v2c",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Legacy SNMPv1/v2c community configurations detected",
+          "remediation": "Disable legacy SNMP communities by running 'no snmp-server community <string>' and upgrade to SNMPv3 which provides user-based security, encryption, and authentication ('snmp-server group' and 'snmp-server user')."
+        }
+      ]
+    },
+    {
+      "id": 1782027422852,
+      "createdAt": "2026-06-21T07:37:02.852Z",
+      "target": "127.0.0.1",
+      "devices": [
+        {
+          "ip": "127.0.0.1",
+          "hostname": "localhost",
+          "vendor": "Loopback Interface",
+          "mac": "00:00:00:00:00:00",
+          "openPorts": [
+            {
+              "port": 135,
+              "service": "msrpc",
+              "banner": "unknown"
+            },
+            {
+              "port": 445,
+              "service": "microsoft-ds",
+              "banner": "unknown"
+            },
+            {
+              "port": 8090,
+              "service": "http-alternate",
+              "banner": "unknown"
+            },
+            {
+              "port": 5000,
+              "service": "http",
+              "banner": "HTTP Service (Title: Error)"
+            }
+          ]
+        }
+      ],
+      "firewallRules": [
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "22"
+        },
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "80"
+        },
+        {
+          "action": "deny",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "23"
+        }
+      ],
+      "cisResults": [
+        {
+          "id": "CIS-1.1",
+          "checkName": "No Telnet Exposure",
+          "status": "PASS",
+          "severity": "HIGH",
+          "evidence": "No permit rules found for Telnet port 23",
+          "remediation": "None required. Telnet access is disabled/denied by default."
+        },
+        {
+          "id": "CIS-3.1",
+          "checkName": "Remote Logging Enabled",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Remote logging host is configured in the network device settings",
+          "remediation": "Configure remote syslog server forwarding by running 'logging host <syslog_server_ip>' in global configuration mode to send events to a central collector."
+        },
+        {
+          "id": "CIS-1.3",
+          "checkName": "Weak SNMP Community",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "evidence": "Default/weak SNMP community string ('public' or 'private') detected in configurations",
+          "remediation": "Remove default SNMP communities (e.g. 'no snmp-server community public') and configure unique, complex community strings, or disable SNMP in favor of secure SNMPv3."
+        },
+        {
+          "id": "CIS-2.1",
+          "checkName": "Sensitive Ports Restricted",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "evidence": "Sensitive port 22 is exposed to 'any' source in a permit rule.",
+          "remediation": "Restrict rules allowing management/database ports to trusted IPs or subnets (e.g. 'permit tcp 192.168.1.0 0.0.0.255 any 22') instead of allowing 'any'."
+        },
+        {
+          "id": "CIS-1.2",
+          "checkName": "SSH Only Management",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "evidence": "Insecure management/transfer port 80 is explicitly permitted.",
+          "remediation": "Disable cleartext administration protocols. Ensure only secure SSH (port 22) is permitted for remote administration, and remove rules allowing ports 21 (FTP), 23 (Telnet), and 80 (HTTP)."
+        },
+        {
+          "id": "CIS-2.2",
+          "checkName": "Default Deny Policy",
+          "status": "PASS",
+          "severity": "HIGH",
+          "evidence": "Deny rule detected in firewall configurations",
+          "remediation": "None required. A default deny rule is in place."
+        },
+        {
+          "id": "CIS-3.2",
+          "checkName": "Secure HTTP Administration",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Firewall rules permit insecure HTTP (port 80) access",
+          "remediation": "Disable HTTP server for management ('no ip http server') and enable secure HTTPS server ('ip http secure-server') to encrypt administrative web sessions."
+        },
+        {
+          "id": "CIS-1.4",
+          "checkName": "Disable Insecure SNMP v1/v2c",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Legacy SNMPv1/v2c community configurations detected",
+          "remediation": "Disable legacy SNMP communities by running 'no snmp-server community <string>' and upgrade to SNMPv3 which provides user-based security, encryption, and authentication ('snmp-server group' and 'snmp-server user')."
+        }
+      ]
+    },
+    {
+      "id": 1782029289781,
+      "createdAt": "2026-06-21T08:08:09.781Z",
+      "target": "127.0.0.1",
+      "devices": [
+        {
+          "ip": "127.0.0.1",
+          "hostname": "localhost",
+          "vendor": "Unknown",
+          "mac": "Unknown",
+          "openPorts": [
+            {
+              "port": 135,
+              "service": "msrpc"
+            },
+            {
+              "port": 445,
+              "service": "microsoft-ds"
+            },
+            {
+              "port": 5000,
+              "service": "http"
+            },
+            {
+              "port": 8090,
+              "service": "tcpwrapped"
+            }
+          ]
+        }
+      ],
+      "firewallRules": [
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "22"
+        },
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "80"
+        },
+        {
+          "action": "deny",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "23"
+        }
+      ],
+      "cisResults": [
+        {
+          "id": "CIS-1.1",
+          "checkName": "No Telnet Exposure",
+          "status": "PASS",
+          "severity": "HIGH",
+          "evidence": "No permit rules found for Telnet port 23",
+          "remediation": "None required. Telnet access is disabled/denied by default."
+        },
+        {
+          "id": "CIS-3.1",
+          "checkName": "Remote Logging Enabled",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Remote logging host is configured in the network device settings",
+          "remediation": "Configure remote syslog server forwarding by running 'logging host <syslog_server_ip>' in global configuration mode to send events to a central collector."
+        },
+        {
+          "id": "CIS-1.3",
+          "checkName": "Weak SNMP Community",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "evidence": "Default/weak SNMP community string ('public' or 'private') detected in configurations",
+          "remediation": "Remove default SNMP communities (e.g. 'no snmp-server community public') and configure unique, complex community strings, or disable SNMP in favor of secure SNMPv3."
+        },
+        {
+          "id": "CIS-2.1",
+          "checkName": "Sensitive Ports Restricted",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "evidence": "Sensitive port 22 is exposed to 'any' source in a permit rule.",
+          "remediation": "Restrict rules allowing management/database ports to trusted IPs or subnets (e.g. 'permit tcp 192.168.1.0 0.0.0.255 any 22') instead of allowing 'any'."
+        },
+        {
+          "id": "CIS-1.2",
+          "checkName": "SSH Only Management",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "evidence": "Insecure management/transfer port 80 is explicitly permitted.",
+          "remediation": "Disable cleartext administration protocols. Ensure only secure SSH (port 22) is permitted for remote administration, and remove rules allowing ports 21 (FTP), 23 (Telnet), and 80 (HTTP)."
+        },
+        {
+          "id": "CIS-2.2",
+          "checkName": "Default Deny Policy",
+          "status": "PASS",
+          "severity": "HIGH",
+          "evidence": "Deny rule detected in firewall configurations",
+          "remediation": "None required. A default deny rule is in place."
+        },
+        {
+          "id": "CIS-3.2",
+          "checkName": "Secure HTTP Administration",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Firewall rules permit insecure HTTP (port 80) access",
+          "remediation": "Disable HTTP server for management ('no ip http server') and enable secure HTTPS server ('ip http secure-server') to encrypt administrative web sessions."
+        },
+        {
+          "id": "CIS-1.4",
+          "checkName": "Disable Insecure SNMP v1/v2c",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Legacy SNMPv1/v2c community configurations detected",
+          "remediation": "Disable legacy SNMP communities by running 'no snmp-server community <string>' and upgrade to SNMPv3 which provides user-based security, encryption, and authentication ('snmp-server group' and 'snmp-server user')."
+        }
+      ]
+    },
+    {
+      "id": 1782029308994,
+      "createdAt": "2026-06-21T08:08:28.994Z",
+      "target": "127.0.0.1",
+      "devices": [
+        {
+          "ip": "127.0.0.1",
+          "hostname": "localhost",
+          "vendor": "Loopback Interface",
+          "mac": "00:00:00:00:00:00",
+          "openPorts": [
+            {
+              "port": 135,
+              "service": "msrpc",
+              "banner": "unknown"
+            },
+            {
+              "port": 445,
+              "service": "microsoft-ds",
+              "banner": "unknown"
+            },
+            {
+              "port": 8090,
+              "service": "http-alternate",
+              "banner": "unknown"
+            },
+            {
+              "port": 5000,
+              "service": "http",
+              "banner": "HTTP Service (Title: Error)"
+            }
+          ]
+        }
+      ],
+      "firewallRules": [
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "22"
+        },
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "80"
+        },
+        {
+          "action": "deny",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "23"
+        }
+      ],
+      "cisResults": [
+        {
+          "id": "CIS-1.1",
+          "checkName": "No Telnet Exposure",
+          "status": "PASS",
+          "severity": "HIGH",
+          "evidence": "No permit rules found for Telnet port 23",
+          "remediation": "None required. Telnet access is disabled/denied by default."
+        },
+        {
+          "id": "CIS-3.1",
+          "checkName": "Remote Logging Enabled",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Remote logging host is configured in the network device settings",
+          "remediation": "Configure remote syslog server forwarding by running 'logging host <syslog_server_ip>' in global configuration mode to send events to a central collector."
+        },
+        {
+          "id": "CIS-1.3",
+          "checkName": "Weak SNMP Community",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "evidence": "Default/weak SNMP community string ('public' or 'private') detected in configurations",
+          "remediation": "Remove default SNMP communities (e.g. 'no snmp-server community public') and configure unique, complex community strings, or disable SNMP in favor of secure SNMPv3."
+        },
+        {
+          "id": "CIS-2.1",
+          "checkName": "Sensitive Ports Restricted",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "evidence": "Sensitive port 22 is exposed to 'any' source in a permit rule.",
+          "remediation": "Restrict rules allowing management/database ports to trusted IPs or subnets (e.g. 'permit tcp 192.168.1.0 0.0.0.255 any 22') instead of allowing 'any'."
+        },
+        {
+          "id": "CIS-1.2",
+          "checkName": "SSH Only Management",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "evidence": "Insecure management/transfer port 80 is explicitly permitted.",
+          "remediation": "Disable cleartext administration protocols. Ensure only secure SSH (port 22) is permitted for remote administration, and remove rules allowing ports 21 (FTP), 23 (Telnet), and 80 (HTTP)."
+        },
+        {
+          "id": "CIS-2.2",
+          "checkName": "Default Deny Policy",
+          "status": "PASS",
+          "severity": "HIGH",
+          "evidence": "Deny rule detected in firewall configurations",
+          "remediation": "None required. A default deny rule is in place."
+        },
+        {
+          "id": "CIS-3.2",
+          "checkName": "Secure HTTP Administration",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Firewall rules permit insecure HTTP (port 80) access",
+          "remediation": "Disable HTTP server for management ('no ip http server') and enable secure HTTPS server ('ip http secure-server') to encrypt administrative web sessions."
+        },
+        {
+          "id": "CIS-1.4",
+          "checkName": "Disable Insecure SNMP v1/v2c",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Legacy SNMPv1/v2c community configurations detected",
+          "remediation": "Disable legacy SNMP communities by running 'no snmp-server community <string>' and upgrade to SNMPv3 which provides user-based security, encryption, and authentication ('snmp-server group' and 'snmp-server user')."
+        }
+      ]
+    },
+    {
+      "id": 1782029363151,
+      "createdAt": "2026-06-21T08:09:23.151Z",
+      "target": "127.0.0.1",
+      "devices": [
+        {
+          "ip": "127.0.0.1",
+          "hostname": "localhost",
+          "vendor": "Loopback Interface",
+          "mac": "00:00:00:00:00:00",
+          "openPorts": [
+            {
+              "port": 135,
+              "service": "msrpc",
+              "banner": "unknown"
+            },
+            {
+              "port": 445,
+              "service": "microsoft-ds",
+              "banner": "unknown"
+            },
+            {
+              "port": 8090,
+              "service": "http-alternate",
+              "banner": "unknown"
+            },
+            {
+              "port": 5000,
+              "service": "http",
+              "banner": "HTTP Service (Title: Error)"
+            }
+          ]
+        }
+      ],
+      "firewallRules": [
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "22"
+        },
+        {
+          "action": "permit",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "80"
+        },
+        {
+          "action": "deny",
+          "protocol": "tcp",
+          "source": "any",
+          "destination": "any",
+          "port": "23"
+        }
+      ],
+      "cisResults": [
+        {
+          "id": "CIS-1.1",
+          "checkName": "No Telnet Exposure",
+          "status": "PASS",
+          "severity": "HIGH",
+          "evidence": "No permit rules found for Telnet port 23",
+          "remediation": "None required. Telnet access is disabled/denied by default."
+        },
+        {
+          "id": "CIS-3.1",
+          "checkName": "Remote Logging Enabled",
+          "status": "PASS",
+          "severity": "MEDIUM",
+          "evidence": "Remote logging host is configured in the network device settings",
+          "remediation": "Configure remote syslog server forwarding by running 'logging host <syslog_server_ip>' in global configuration mode to send events to a central collector."
+        },
+        {
+          "id": "CIS-1.3",
+          "checkName": "Weak SNMP Community",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "evidence": "Default/weak SNMP community string ('public' or 'private') detected in configurations",
+          "remediation": "Remove default SNMP communities (e.g. 'no snmp-server community public') and configure unique, complex community strings, or disable SNMP in favor of secure SNMPv3."
+        },
+        {
+          "id": "CIS-2.1",
+          "checkName": "Sensitive Ports Restricted",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "evidence": "Sensitive port 22 is exposed to 'any' source in a permit rule.",
+          "remediation": "Restrict rules allowing management/database ports to trusted IPs or subnets (e.g. 'permit tcp 192.168.1.0 0.0.0.255 any 22') instead of allowing 'any'."
+        },
+        {
+          "id": "CIS-1.2",
+          "checkName": "SSH Only Management",
+          "status": "FAIL",
+          "severity": "HIGH",
+          "evidence": "Insecure management/transfer port 80 is explicitly permitted.",
+          "remediation": "Disable cleartext administration protocols. Ensure only secure SSH (port 22) is permitted for remote administration, and remove rules allowing ports 21 (FTP), 23 (Telnet), and 80 (HTTP)."
+        },
+        {
+          "id": "CIS-2.2",
+          "checkName": "Default Deny Policy",
+          "status": "PASS",
+          "severity": "HIGH",
+          "evidence": "Deny rule detected in firewall configurations",
+          "remediation": "None required. A default deny rule is in place."
+        },
+        {
+          "id": "CIS-3.2",
+          "checkName": "Secure HTTP Administration",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Firewall rules permit insecure HTTP (port 80) access",
+          "remediation": "Disable HTTP server for management ('no ip http server') and enable secure HTTPS server ('ip http secure-server') to encrypt administrative web sessions."
+        },
+        {
+          "id": "CIS-1.4",
+          "checkName": "Disable Insecure SNMP v1/v2c",
+          "status": "FAIL",
+          "severity": "MEDIUM",
+          "evidence": "Legacy SNMPv1/v2c community configurations detected",
+          "remediation": "Disable legacy SNMP communities by running 'no snmp-server community <string>' and upgrade to SNMPv3 which provides user-based security, encryption, and authentication ('snmp-server group' and 'snmp-server user')."
+        }
+      ]
     }
   ]
 }
