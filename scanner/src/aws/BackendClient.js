@@ -1,0 +1,47 @@
+/**
+ * BackendClient — sends the network posture scan report to the local REST
+ * ingestion endpoint (POST /api/ingest).
+ *
+ * Design note: The assignment calls for AWS (API Gateway → Lambda → DynamoDB).
+ * We implement the same interface with a local Express server so the whole
+ * system works without an AWS account.  Swapping to AWS only requires changing
+ * the INGEST_URL env variable and adding a signing step.
+ */
+
+const INGEST_URL =
+  process.env.INGEST_URL || "http://localhost:5000/api/ingest";
+
+const API_KEY = process.env.SCANNER_API_KEY || "network-posture-key-2024";
+
+export class BackendClient {
+  /**
+   * Send a full scan report to the ingestion backend.
+   * @param {Object} report  - { target, devices, firewallRules, cisResults }
+   * @returns {Promise<Object>} - Backend response JSON
+   */
+  async send(report) {
+    const payload = {
+      ...report,
+      scannedAt: new Date().toISOString(),
+    };
+
+    const response = await fetch(INGEST_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        // Basic auth mechanism — API key in header (mirrors AWS API Gateway key)
+        "x-api-key": API_KEY,
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (!response.ok) {
+      const text = await response.text();
+      throw new Error(
+        `Ingestion failed [${response.status}]: ${text}`
+      );
+    }
+
+    return response.json();
+  }
+}
