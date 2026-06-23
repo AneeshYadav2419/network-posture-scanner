@@ -3,27 +3,28 @@ import { CheckResult } from "../models/CheckResult.js";
 export class TelnetCheck {
   execute(rules) {
     const telnetRule = rules.find(
-      (rule) =>
-        rule.port === "23" &&
-        rule.action === "permit"
+      (rule) => rule.port === "23" && rule.action === "permit"
     );
 
     if (telnetRule) {
       return new CheckResult({
-        checkName:
-          "No Telnet Exposure",
+        id: "CIS-1.1",
+        checkName: "No Telnet Exposure",
         status: "FAIL",
-        evidence:
-          "Telnet port 23 is permitted",
+        severity: "HIGH",
+        evidence: "Telnet port 23 is permitted in firewall rules",
+        remediation:
+          "Remove any ACL entries that permit TCP port 23. Replace Telnet with SSH (port 22) for all remote management. Apply: `no access-list <id> permit tcp any any eq 23`.",
       });
     }
 
     return new CheckResult({
-      checkName:
-        "No Telnet Exposure",
+      id: "CIS-1.1",
+      checkName: "No Telnet Exposure",
       status: "PASS",
-      evidence:
-        "No Telnet exposure found",
+      severity: "HIGH",
+      evidence: "No permit rule found for Telnet port 23",
+      remediation: "No action required.",
     });
   }
 }

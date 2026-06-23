@@ -53,13 +53,14 @@ async function getMacAddress(ip) {
 }
 
 /**
- * Lookup vendor name from a MAC address using the built-in OUI table.
- * Falls back to the first 3 octets if not found.
+ * Resolves both the MAC address and vendor name for a given IP.
+ * Returns { mac: string|null, vendor: string }
  */
-export async function getMacVendor(ip) {
+export async function getMacInfo(ip) {
   const mac = await getMacAddress(ip);
-  if (!mac) return "Unknown";
+  if (!mac) return { mac: null, vendor: "Unknown" };
 
   const oui = mac.substring(0, 8).toUpperCase();
-  return OUI_MAP[oui] || `Unknown (${oui})`;
+  const vendor = OUI_MAP[oui] || `Unknown (${oui})`;
+  return { mac, vendor };
 }

@@ -3,33 +3,38 @@ import { CheckResult } from "../models/CheckResult.js";
 export class SshOnlyManagementCheck {
   execute(rules) {
     const insecurePorts = [
-      "23", // Telnet
-      "21", // FTP
-      "80", // HTTP Management
+      { port: "23", label: "Telnet" },
+      { port: "21", label: "FTP" },
+      { port: "80", label: "HTTP" },
     ];
 
     const found = rules.find(
       (rule) =>
         rule.action === "permit" &&
-        insecurePorts.includes(rule.port)
+        insecurePorts.some((p) => p.port === rule.port)
     );
 
     if (found) {
+      const label =
+        insecurePorts.find((p) => p.port === found.port)?.label || found.port;
+
       return new CheckResult({
-        checkName:
-          "SSH Only Management",
+        id: "CIS-1.5",
+        checkName: "SSH Only Management",
         status: "FAIL",
-        evidence:
-          `Insecure management port ${found.port} is allowed`,
+        severity: "HIGH",
+        evidence: `Insecure management protocol port ${found.port} (${label}) is permitted in firewall rules`,
+        remediation: `Disable ${label} access for management. Remove the permit rule for port ${found.port} and ensure all remote management is performed exclusively over SSH (port 22). Apply: \`no access-list <id> permit tcp any any eq ${found.port}\`.`,
       });
     }
 
     return new CheckResult({
-      checkName:
-        "SSH Only Management",
+      id: "CIS-1.5",
+      checkName: "SSH Only Management",
       status: "PASS",
-      evidence:
-        "Only secure management protocols detected",
+      severity: "HIGH",
+      evidence: "No insecure management protocol ports (Telnet/FTP/HTTP) are permitted",
+      remediation: "No action required.",
     });
   }
 }

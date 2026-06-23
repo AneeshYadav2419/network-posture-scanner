@@ -1,13 +1,3 @@
-/**
- * BackendClient — sends the network posture scan report to the local REST
- * ingestion endpoint (POST /api/ingest).
- *
- * Design note: The assignment calls for AWS (API Gateway → Lambda → DynamoDB).
- * We implement the same interface with a local Express server so the whole
- * system works without an AWS account.  Swapping to AWS only requires changing
- * the INGEST_URL env variable and adding a signing step.
- */
-
 const INGEST_URL =
   process.env.INGEST_URL || "http://localhost:5000/api/ingest";
 

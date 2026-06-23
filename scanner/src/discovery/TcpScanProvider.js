@@ -2,7 +2,7 @@ import net from "net";
 import dns from "dns";
 import { promisify } from "util";
 import { Device } from "../models/Device.js";
-import { getMacVendor } from "../utils/macUtils.js";
+import { getMacInfo } from "../utils/macUtils.js";
 
 const reverseLookup = promisify(dns.reverse);
 
@@ -109,15 +109,16 @@ export class TcpScanProvider {
     // Host is considered alive only if at least one port is open
     if (openPorts.length === 0) return [];
 
-    const [hostname, vendor] = await Promise.all([
+    const [hostname, { mac, vendor }] = await Promise.all([
       resolveHostname(ip),
-      getMacVendor(ip),
+      getMacInfo(ip),
     ]);
 
     return [
       new Device({
         ip,
         hostname,
+        mac,
         vendor,
         openPorts,
       }),
