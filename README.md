@@ -34,6 +34,11 @@
 <img width="1127" height="842" alt="Image" src="https://github.com/user-attachments/assets/43cc6c27-0aa7-4a38-8c23-12cbf8b51928" />
 
 
+                                                   CIS Benchmark 
+            
+<img width="1918" height="912" alt="Image" src="https://github.com/user-attachments/assets/aad493ea-f61a-4b90-ba0e-0ef5a83b1504" />
+
+
                             
                                                  Risk Analytics Chart
 
@@ -82,18 +87,14 @@ deny   tcp any any 23   🚫 Telnet blocked
 
 ---
 
-### ✅ CIS Benchmark Compliance Engine
+✅ CIS Benchmark Compliance Engine
 
-6 CIS-inspired security checks — each producing **PASS/FAIL + Evidence + Recommendation**:
+10 CIS v8 Controls — each producing PASS/FAIL + Severity + Audit Evidence + Remediation guidance:
 
-| # | Check | What It Catches |
-|---|-------|----------------|
-| 1 | 🔴 Telnet Exposure | Insecure remote access via port 23 |
-| 2 | 📋 Logging Enabled | Missing remote logging configuration |
-| 3 | 🔑 Weak SNMP Communities | Default `public`/`private` strings |
-| 4 | 🚪 Sensitive Port Exposure | Critical ports exposed publicly |
-| 5 | 🛡️ SSH-Only Management | Insecure management protocols active |
-| 6 | 🚫 Default Deny Rules | Missing deny-all baseline rules |
+CIS IDBenchmark ControlSeverityDescriptionCIS-1.1🟢 No Telnet ExposureHIGHDetects exposed Telnet access on port 23CIS-1.2🟢 Remote Logging EnabledMEDIUMVerifies remote syslog destination configuredCIS-1.3🔴 Weak SNMP Community StringHIGHDetects default public/private community stringsCIS-1.4🔴 Sensitive Ports RestrictedCRITICALSSH port 22 permitted from any source (0.0.0.0/0)CIS-1.5🔴 SSH Only ManagementHIGHInsecure HTTP management protocol permitted in firewallCIS-1.6🟢 Default Deny PolicyCRITICALVerifies explicit deny-all rule exists in rulesetCIS-1.7🔴 Local Password EncryptionMEDIUMChecks for service password-encryption directiveCIS-1.8🔴 Login Warning BannerLOWValidates warning banner directive in configurationCIS-1.9🔴 Domain Lookup DisabledLOWEnsures DNS domain lookup is explicitly disabledCIS-1.10🔴 Secure Web AdministrationMEDIUMDetects insecure HTTP server, verifies HTTPS enforcement
+
+
+🟢 PASS    🔴 FAIL    Each check includes: Severity · Status · Audit Evidence · Remediation Action
 
 ---
 
