@@ -29,9 +29,9 @@
 <img width="1915" height="903" alt="Image" src="https://github.com/user-attachments/assets/b69ed3f5-9c64-4426-ad09-25d1b9d6f349" />
 
 
-                                                     Tables
+                                     Discovered Hosts , Exposed Ports & Firewall Rules
 
-<img width="1127" height="842" alt="Image" src="https://github.com/user-attachments/assets/43cc6c27-0aa7-4a38-8c23-12cbf8b51928" />
+<img width="1775" height="651" alt="Image" src="https://github.com/user-attachments/assets/06267ba3-3b2a-431f-b8a5-ec4895ecfbca" />
 
 
                                                    CIS Benchmark 
