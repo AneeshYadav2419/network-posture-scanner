@@ -24,6 +24,21 @@
 
 ---
 
+                                                    Dashboard
+
+<img width="1915" height="903" alt="Image" src="https://github.com/user-attachments/assets/b69ed3f5-9c64-4426-ad09-25d1b9d6f349" />
+
+
+                                                     Tables
+
+<img width="1127" height="842" alt="Image" src="https://github.com/user-attachments/assets/43cc6c27-0aa7-4a38-8c23-12cbf8b51928" />
+
+
+                            
+                                                 Risk Analytics Chart
+
+<img width="567" height="328" alt="Image" src="https://github.com/user-attachments/assets/50c89377-e19b-4f7f-b9ed-9c300b8d1ed9" />
+
 ## 🎯 What Is This?
 
 Most security teams rely on heavyweight enterprise tools to assess their network posture. This project challenges that assumption — delivering **device discovery, firewall analysis, and CIS compliance checks** through a lightweight, modular, and extensible Node.js-based scanner with a clean React dashboard.
