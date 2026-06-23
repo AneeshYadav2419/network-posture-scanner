@@ -1,24 +1,4 @@
-// import {
-//   saveScan,
-// } from "../store/jsonStore.js";
 
-// export const ingestScan =
-//   (req, res) => {
-//     const scanReport =
-//       req.body;
-
-//     const saved =
-//       saveScan(
-//         scanReport
-//       );
-
-//     res.status(201).json({
-//       message:
-//         "Scan saved successfully",
-//       scanId:
-//         saved.id,
-//     });
-//   };
 import {
   saveScan,
   getLatestScan,
@@ -58,7 +38,7 @@ export const getFirewallRules =
 
     res.json(
       scan?.firewallRules ||
-        []
+      []
     );
   };
 
@@ -69,6 +49,6 @@ export const getCisResults =
 
     res.json(
       scan?.cisResults ||
-        []
+      []
     );
   };

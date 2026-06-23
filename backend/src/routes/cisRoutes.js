@@ -1,15 +1,10 @@
 import express from "express";
-
-import {
-  getCisResults,
-} from "../controllers/scanController.js";
+import { getCisResults } from "../controllers/scanController.js";
+import { apiKeyAuth } from "../middleware/apiKeyAuth.js";
 
 const router =
   express.Router();
 
-router.get(
-  "/",
-  getCisResults
-);
+router.get("/", apiKeyAuth, getCisResults);
 
 export default router;
