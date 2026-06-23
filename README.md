@@ -87,7 +87,10 @@ deny   tcp any any 23   🚫 Telnet blocked
 
 ---
 
-**GitHub pe exactly aisa dikhega:**
+✅ CIS Benchmark Compliance Engine
+
+10 CIS v8 Controls — each producing PASS/FAIL + Severity + Audit Evidence + Remediation guidance:
+
 
 | CIS ID | Benchmark Control | Severity | Status | Description |
 |--------|-------------------|----------|--------|-------------|
