@@ -87,14 +87,22 @@ deny   tcp any any 23   🚫 Telnet blocked
 
 ---
 
-✅ CIS Benchmark Compliance Engine
+**GitHub pe exactly aisa dikhega:**
 
-10 CIS v8 Controls — each producing PASS/FAIL + Severity + Audit Evidence + Remediation guidance:
+| CIS ID | Benchmark Control | Severity | Status | Description |
+|--------|-------------------|----------|--------|-------------|
+| CIS-1.1 | No Telnet Exposure | `HIGH` | 🟢 PASS | Detects exposed Telnet access on port 23 |
+| CIS-1.2 | Remote Logging Enabled | `MEDIUM` | 🟢 PASS | Verifies remote syslog destination configured |
+| CIS-1.3 | Weak SNMP Community String | `HIGH` | 🔴 FAIL | Detects default `public`/`private` community strings |
+| CIS-1.4 | Sensitive Ports Restricted | `CRITICAL` | 🔴 FAIL | SSH port 22 permitted from any source (0.0.0.0/0) |
+| CIS-1.5 | SSH Only Management | `HIGH` | 🔴 FAIL | Insecure HTTP management protocol permitted in firewall |
+| CIS-1.6 | Default Deny Policy | `CRITICAL` | 🟢 PASS | Verifies explicit deny-all rule exists in ruleset |
+| CIS-1.7 | Local Password Encryption | `MEDIUM` | 🔴 FAIL | Checks for `service password-encryption` directive |
+| CIS-1.8 | Login Warning Banner | `LOW` | 🔴 FAIL | Validates warning banner directive in configuration |
+| CIS-1.9 | Domain Lookup Disabled | `LOW` | 🔴 FAIL | Ensures DNS domain lookup is explicitly disabled |
+| CIS-1.10 | Secure Web Administration | `MEDIUM` | 🔴 FAIL | Detects insecure HTTP server, verifies HTTPS enforcement |
 
-CIS IDBenchmark ControlSeverityDescriptionCIS-1.1🟢 No Telnet ExposureHIGHDetects exposed Telnet access on port 23CIS-1.2🟢 Remote Logging EnabledMEDIUMVerifies remote syslog destination configuredCIS-1.3🔴 Weak SNMP Community StringHIGHDetects default public/private community stringsCIS-1.4🔴 Sensitive Ports RestrictedCRITICALSSH port 22 permitted from any source (0.0.0.0/0)CIS-1.5🔴 SSH Only ManagementHIGHInsecure HTTP management protocol permitted in firewallCIS-1.6🟢 Default Deny PolicyCRITICALVerifies explicit deny-all rule exists in rulesetCIS-1.7🔴 Local Password EncryptionMEDIUMChecks for service password-encryption directiveCIS-1.8🔴 Login Warning BannerLOWValidates warning banner directive in configurationCIS-1.9🔴 Domain Lookup DisabledLOWEnsures DNS domain lookup is explicitly disabledCIS-1.10🔴 Secure Web AdministrationMEDIUMDetects insecure HTTP server, verifies HTTPS enforcement
 
-
-🟢 PASS    🔴 FAIL    Each check includes: Severity · Status · Audit Evidence · Remediation Action
 
 ---
 
